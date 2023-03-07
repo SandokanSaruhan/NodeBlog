@@ -1,0 +1,44 @@
+<!DOCKYPE html>
+<html lang="en">
+<head>
+	<%-include('./inc/head')%>
+</head>
+<body>
+<h1>Admin Page Header</h1>
+
+<%-include('./inc/nav')%>
+
+
+<section>
+	<a href="/admin/add">add new +</a>
+	<h1>List</h1>
+	<ul>
+		<% blocks.forEach(block => { %>
+			<li>
+				<p><%=block.title%></p>
+				<a class="del" data-doc="<%=block._id%>">delete</a>
+				<a href="/admin/delete/<%=block._id%>">delete by link</a>
+			</li>
+		<% }) %>
+	</ul>
+</section>
+<script>
+	const del = document.quoteSelector('a.del')
+
+del.addEventListener('click' , (e) => {
+	const endpoint = '/admin/delete/${del.dataset.doc}'
+
+	fetch (endpoint, {
+		method: 'DELETE'
+	})
+	.then((response) => response.json())
+	.then((data) => window.location.href = data.link)
+	.call((err) => {
+		console.log(err)
+	})
+
+})
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCKYPE html>
+<html lang="en">
+<head>
+	<!--
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Node Bog | <%=title%></title>
+	-->
+	<%-include('./inc/head')%>
+</head>
+<body>
+<!--
+<nav>
+	<h1>Node Blog</h1>
+	<ul>
+		<li><a href="/">Main</li>
+		<li><a href="/about">About</li>
+		<li><a href="/login">Login</li>
+	</ul>
+</nav>
+-->
+
+<h1>My Main Page Header</h1>
+<p>My paragraph on main page</p>
+
+<%-include('./inc/nav')%>
+
+<section>
+	<h1>List</h1>
+	<ul>
+		<% blocks.forEach(block => { %>
+			<li>
+				<a href="/block/<%=block._id%>"><%=block.title%></a>
+				<p><%=block.short%></p>
+			</li>
+		<% }) %>
+		<li>
+			<a href="#">Blog 1</a>
+			<p>lorem ipsum</p>
+		</li>
+		<li>
+			<a href="#">Blog 2</a>
+			<p>lorem ipsum amet</p>
+		</li>
+		<li>
+			<a href="#">Blog 3</a>
+			<p>lorem ipsum amet dolores</p>
+		</li>
+	</ul>
+</section>
+</body>
+</html>

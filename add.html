@@ -1,0 +1,28 @@
+<!DOCKYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="/style.css">
+	<title>Login Page</title>
+</head>
+<body>
+
+<% let name = 'Login Page' %>
+
+<p><%=name%></p>
+
+<%-include('./inc/nav')%>
+
+
+<section>
+	<form action="/admin/add" method="post">
+		<input type="text" name="title" placeholder="Title" required>
+		<input type="text" name="short" placeholder="Short Description" required>
+		<input type="text" name="long" placeholder="Description" required>
+		<input type="submit" name="save">
+	</form>
+</section>
+</body>
+</html>
